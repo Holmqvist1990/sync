@@ -9,7 +9,7 @@ def git_add
 end
 
 def git_commit(commit_number)
-  process_err("git", ["commit", "-m", commit_number.to_s])
+  process_err("git", ["commit", "-m", "sync auto-commit: ##{commit_number}"])
 end
 
 def git_push
