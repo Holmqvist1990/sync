@@ -1,0 +1,16 @@
+name: sync
+version: 0.1.0
+
+authors:
+  - your-name-here <fredrik.d.holmqvist@gmail.com>
+
+targets:
+  sync:
+    main: src/sync.cr
+
+crystal: 1.8.2
+
+crystalline:
+  main: src/sync.cr
+
+license: MIT
