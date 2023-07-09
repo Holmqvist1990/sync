@@ -4,6 +4,15 @@ def git_log
   process_out_err("git", ["log", "--oneline"])
 end
 
+def git_commit_number()
+  log, err = git_log()
+  unless err.empty?
+    return log, err
+  end
+
+  return log.split("\n").size, ""
+end
+
 def git_add
   process_err("git", ["add", "."])
 end

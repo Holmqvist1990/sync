@@ -1,10 +1,8 @@
 require "./git"
 
 begin
-  log, err = git_log()
+  new_version, err = git_commit_number()
   raise err unless err.empty?
-
-  new_version = log.split("\n").size
 
   err = git_add()
   raise err unless err.empty?
