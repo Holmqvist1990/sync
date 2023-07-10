@@ -25,6 +25,10 @@ def git_push
   process_err("git", ["push"])
 end
 
+def local_user
+  process_out_err("bash", ["-c", "echo $USER"])
+end
+
 def process_out_err(command, args)
   result_out, result_in = IO.pipe
   err_out, err_in = IO.pipe
