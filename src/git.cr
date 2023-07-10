@@ -37,10 +37,10 @@ def process_out_err(command, args)
   result_in.close
   err_in.close
 
-  log = result_out.try(&.gets_to_end)
+  res = result_out.try(&.gets_to_end)
   err = err_out.try(&.gets_to_end)
 
-  return log, err
+  return res, err
 end
 
 def process_err(command, args)
