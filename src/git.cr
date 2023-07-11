@@ -13,6 +13,10 @@ def git_commit_number()
   return log.split("\n").size, ""
 end
 
+def git_pull
+  process_err("git", ["pull", "--rebase"])
+end
+
 def git_add
   process_err("git", ["add", "."])
 end
