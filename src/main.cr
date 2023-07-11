@@ -17,7 +17,7 @@ begin
   err = git_push()
   raise err unless err.empty?
 rescue ex
-  STDERR.puts ex.message
+  STDERR.puts "ERROR: #{ex.message}"
 end
 
 puts "done"
