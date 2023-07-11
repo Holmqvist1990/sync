@@ -15,7 +15,7 @@ begin
   raise "git_pull: #{err}"  unless err.empty?
 
   err = git_push()
-  raise "git_push: #{err}" unless err.empty?
+  raise "git_push: #{err}" unless err.empty? || err.includes?("To https://")
 rescue ex
   STDERR.puts "ERROR: #{ex.message}"
   exit(3)
