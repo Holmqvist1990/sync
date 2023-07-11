@@ -18,6 +18,7 @@ begin
   raise err unless err.empty?
 rescue ex
   STDERR.puts "ERROR: #{ex.message}"
+  exit(3)
 end
 
 puts "done"
