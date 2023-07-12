@@ -1,21 +1,11 @@
-require "./git"
+require "../../git_helpers/src/git"
 
 begin
-
-  new_version, err = git_commit_number()
-  raise "git_commit_number: #{err}"  unless err.empty?
-
-  err = git_add()
-  raise "git_add: #{err}"  unless err.empty?
-
-  err = git_commit(new_version)
-  raise "git_commit: #{err}"  unless err.empty?
-
-  err = git_pull()
-  raise "git_pull: #{err}"  unless err.empty?
-
-  err = git_push()
-  raise "git_push: #{err}" unless err.empty? || err.includes?("To https://")
+  commit_number = Git.commit_number!()
+  Git.add_dot!()
+  Git.commit!("sync auto-commit: ##{commit_number}")
+  Git.pull!(rebase: true)
+  Git.push!()
 rescue ex
   STDERR.puts "ERROR: #{ex.message}"
   exit(3)
